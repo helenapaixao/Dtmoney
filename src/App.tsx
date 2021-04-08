@@ -8,7 +8,7 @@ function App() {
     <>
     <Header/>
     <GlobalStyle/>
-   <h1>hello Bitch</h1>
+
 
    </>
   );
