@@ -25,4 +25,14 @@ export  const GlobalStyle = createGlobalStyle`
    -webkit-font-smooting: antializased;
  }
 
+ button {
+   cursor: pointer;
+ }
+
+ [disabled] {
+   opacity: 0.6;
+   cursor: not-allowed;
+
+ }
+
 `;
