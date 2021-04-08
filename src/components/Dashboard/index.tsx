@@ -1,10 +1,16 @@
 import React from 'react';
+import {Container} from './styles'
+
+import {Summary} from '../Summary'
 
 
 export function Dashboard() {
 
   return (
-    <h1>Dahsboard</h1>
+    <Container>
+    <Summary/>
+    </Container>
+
   )
   
 }
