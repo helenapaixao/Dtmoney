@@ -19,7 +19,7 @@ export function NewTransactionModal({
         <input placeholder="Titulo" />
         <input type="number" placeholder="Valor" />
         <input placeholder="Categoria" />
-        <button type="button">Cadastrar</button>
+        <button type="submit">Cadastrar</button>
       </Container>
     </Modal>
   );
