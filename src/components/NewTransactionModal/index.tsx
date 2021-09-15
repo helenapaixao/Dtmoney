@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import Modal from "react-modal";
 import incomeImg from "../../assets/income.svg";
 import outcomeImg from "../../assets/outcome.svg";
@@ -13,11 +14,8 @@ export function NewTransactionModal({
   isOpen,
   onRequestClose,
 }: NewTransactionModalProps) {
+  const [type, setType] = useState("deposit");
 
-  const [type, setType] = useState('deposit');
-
- 
-  
   return (
     <Modal
       isOpen={isOpen}
@@ -38,15 +36,20 @@ export function NewTransactionModal({
         <input placeholder="Titulo" />
         <TransactionTypeContainer>
           <RadioBox
+            isActive={type === "deposit"}
+            activeColor="red"
             type="button"
-          onClick={() => setType('deposit')}
+            onClick={() => setType("deposit")}
           >
             <img src={incomeImg} alt="Entrada" />
             <span>Entrada</span>
           </RadioBox>
 
-          <RadioBox type="button"
-              onClick={() => setType('withdraw')}
+          <RadioBox
+            type="button"
+            isActive={type === "withdraw"}
+            activeColor="green"
+            onClick={() => setType("withdraw")}
           >
             <img src={outcomeImg} alt="Saída" />
             <span>Saída</span>
