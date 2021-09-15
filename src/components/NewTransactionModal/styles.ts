@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { darken,  transparentize } from "polished";
+import { darken, transparentize } from "polished";
+
+
 export const Container = styled.div`
   h2 {
     color: var(--text-title);
@@ -70,20 +72,15 @@ interface RadiosBoxProps {
 }
 
 const colors = {
-  green: '#33CC95',
-  red: '#E52E4D',
+  green: '#33cc95',
+  red: '#e52e4d',
 }
 
 export const RadioBox = styled.button<RadiosBoxProps>`
     height: 4rem;
     border: 1px solid #d7d7d7;
     border-radius: 0.25rem;
-
-
-
-    background: ${(props) => props.isActive ? transparentize(0.9,colors[props.activeColor])  : 'transparent' };
-
-    background: transparent;
+    background: ${(props) => props.isActive ? transparentize(0.9,colors[props.activeColor]) : 'transparent'};
     display: flex;
     align-items: center;
     justify-content: center;
