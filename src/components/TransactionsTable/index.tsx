@@ -9,15 +9,15 @@ interface Transaction {
   amount: number;
   category: string;
   createdAt: string;
-  
 }
-
 
 export function TransactionsTable() {
   const [transactions, setTransactions] = React.useState<Transaction[]>([]);
 
   useEffect(() => {
-    api.get("transactions").then((response) => setTransactions(response.data.transactions));
+    api
+      .get("transactions")
+      .then((response) => setTransactions(response.data.transactions));
   }, []);
 
   return (
@@ -33,12 +33,18 @@ export function TransactionsTable() {
         </thead>
         <tbody>
           {transactions.map((transaction) => (
-              <tr key={transaction.id}>
-              <td className="title">{transaction.title }</td>
-              <td className={transaction.type }>{transaction.amount }</td>
+            <tr key={transaction.id}>
+              <td className="title">{transaction.title}</td>
+              <td className={transaction.type}>
+                {new Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(transaction.amount)}
+              </td>
+
               <td>{transaction.category}</td>
-              <td>{transaction.createdAt }</td>
-              </tr>
+              <td>{transaction.createdAt}</td>
+            </tr>
           ))}
         </tbody>
       </table>
