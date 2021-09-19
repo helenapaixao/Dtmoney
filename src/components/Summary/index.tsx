@@ -1,38 +1,41 @@
-import React from  'react';
-import incomeImg from '../../assets/income.svg'
-import outcomeImg from '../../assets/outcome.svg'
-import totalImg from '../../assets/total.svg'
+import React,{useContext} from "react";
+import incomeImg from "../../assets/income.svg";
+import outcomeImg from "../../assets/outcome.svg";
+import totalImg from "../../assets/total.svg";
+import { TransactionsContext } from "../../TransactionContexts";
 
-import { Container } from './styles';
+import { Container } from "./styles";
 
 export function Summary() {
-  return(
+
+  const transactions = useContext(TransactionsContext)
+
+  console.log(transactions)
+
+  return (
     <Container>
+  
       <div>
         <header>
           <p>Entradas</p>
-          <img src={incomeImg} alt="Entradas"/>
+          <img src={incomeImg} alt="Entradas" />
           <strong>R$ 1000,00</strong>
         </header>
-
       </div>
       <div>
         <header>
           <p>Saídas</p>
-          <img src={outcomeImg} alt="Saídas"/>
+          <img src={outcomeImg} alt="Saídas" />
           <strong>R$ 1000,00</strong>
         </header>
-
       </div>
       <div className="hightlight-background">
         <header>
           <p>Total</p>
-          <img src={totalImg} alt="Total"/>
+          <img src={totalImg} alt="Total" />
           <strong> - R$ 500,00</strong>
         </header>
-
       </div>
-
     </Container>
-  )
+  );
 }
